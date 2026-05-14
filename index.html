@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aiden Percy</title>
+<meta name="description" content="Aiden Percy — IT and technology. Sydney, Northern Beaches.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Spline+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1012;
+    --bg-soft: #181a1d;
+    --ink: #f1f3f5;
+    --ink-soft: #a9adb3;
+    --ink-faint: #74787e;
+    --accent: #5b9bd5;
+    --line: #292b2f;
+    --display: 'Fraunces', Georgia, serif;
+    --body: 'Spline Sans', system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; }
+
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  /* ---- layout ---- */
+  .wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---- nav ---- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(17,16,14,0.82);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+  .mark {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 19px;
+    letter-spacing: -0.01em;
+  }
+  .mark span { color: var(--accent); }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  .nav-links a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  @media (max-width: 560px) {
+    .nav-links { gap: 18px; font-size: 13.5px; }
+  }
+
+  /* ---- hero ---- */
+  header {
+    padding: 96px 0 80px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  header::before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0;
+    width: 420px; height: 420px;
+    background: radial-gradient(circle at center, rgba(91,155,213,0.13), transparent 70%);
+    pointer-events: none;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 48px;
+    align-items: start;
+  }
+  @media (max-width: 640px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+    header { padding: 64px 0 56px; }
+  }
+  .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 22px;
+  }
+  h1 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(2.6rem, 6vw, 4.1rem);
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+    margin-bottom: 26px;
+  }
+  .lede {
+    font-size: 18.5px;
+    color: var(--ink-soft);
+    max-width: 30em;
+  }
+  .lede strong { color: var(--ink); font-weight: 500; }
+
+  /* photo slot */
+  .photo {
+    width: 200px;
+    height: 240px;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    background: var(--bg-soft);
+    object-fit: cover;
+    display: block;
+  }
+  .photo-placeholder {
+    width: 200px;
+    height: 240px;
+    border: 1px dashed var(--line);
+    border-radius: 3px;
+    background: var(--bg-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--ink-faint);
+    font-size: 12.5px;
+    line-height: 1.5;
+    padding: 16px;
+  }
+  @media (max-width: 640px) {
+    .photo, .photo-placeholder { width: 160px; height: 192px; }
+  }
+
+  /* ---- sections ---- */
+  section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  section:last-of-type { border-bottom: none; }
+  .section-label {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 32px;
+  }
+  h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 24px;
+  }
+  .prose p { color: var(--ink-soft); margin-bottom: 16px; max-width: 38em; }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose strong { color: var(--ink); font-weight: 500; }
+
+  /* ---- experience ---- */
+  .role {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 32px;
+    padding: 26px 0;
+    border-top: 1px solid var(--line);
+  }
+  .role:first-of-type { border-top: none; padding-top: 0; }
+  @media (max-width: 560px) {
+    .role { grid-template-columns: 1fr; gap: 8px; }
+  }
+  .role-meta {
+    font-size: 14px;
+    color: var(--ink-faint);
+  }
+  .role-title {
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .role-org { color: var(--accent); font-size: 15px; margin-bottom: 12px; }
+  .role-body { color: var(--ink-soft); font-size: 15.5px; }
+
+  /* ---- education / facts ---- */
+  .facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 40px;
+  }
+  @media (max-width: 560px) { .facts { grid-template-columns: 1fr; } }
+  .fact-title {
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 3px;
+  }
+  .fact-sub { color: var(--ink-faint); font-size: 14px; }
+
+  /* ---- contact ---- */
+  #contact { padding-bottom: 96px; }
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 28px;
+  }
+  .contact-links a {
+    text-decoration: none;
+    border: 1px solid var(--line);
+    padding: 13px 22px;
+    border-radius: 3px;
+    font-size: 15px;
+    color: var(--ink);
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .contact-links a:hover {
+    border-color: var(--accent);
+    background: var(--bg-soft);
+  }
+  .contact-links a span { color: var(--ink-faint); margin-right: 8px; }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 28px 0;
+    color: var(--ink-faint);
+    font-size: 13.5px;
+  }
+  footer .wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* ---- entrance animation ---- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .d1 { animation-delay: 0.05s; }
+  .d2 { animation-delay: 0.15s; }
+  .d3 { animation-delay: 0.25s; }
+  .d4 { animation-delay: 0.35s; }
+  @keyframes rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { animation: none; opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="mark">Aiden Percy<span>.</span></div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow reveal d1">IT &amp; Technology · Sydney</div>
+      <h1 class="reveal d2">Aiden Percy</h1>
+      <p class="lede reveal d3">I work in <strong>IT and technology</strong> — support, hardware, and the kind of hands-on problem-solving that keeps systems running. Based in Sydney's Northern Beaches, currently studying and building toward engineering.</p>
+    </div>
+    <!-- PHOTO: replace the placeholder div below with:
+         <img class="photo" src="photo.jpg" alt="Aiden Percy">
+         (see the instructions in chat for how to upload photo.jpg) -->
+    <div class="photo-placeholder reveal d4">Your photo goes here — see the upload instructions</div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-label">About</div>
+    <h2>Practical, technical, and reliable.</h2>
+    <div class="prose">
+      <p>My background is in IT — I've worked across technical support and hardware as an intern at <strong>New Era Technology</strong> and as a technician at <strong>Silicon Beach Computers</strong>. More recently I worked as a <strong>Quality Technician in automation at Breville</strong>, which sharpened how I approach process, accuracy, and the point where hardware meets software.</p>
+      <p>I'm currently studying at TAFE NSW and working toward a long-term goal of electrical engineering, with an interest in high-voltage work. The short version: I like understanding how things actually work, and I like fixing them when they don't.</p>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-label">Experience</div>
+    <h2>Where I've worked.</h2>
+
+    <div class="role">
+      <div class="role-meta">Oct 2025 — Jan 2026</div>
+      <div>
+        <div class="role-title">Quality Technician — Automation</div>
+        <div class="role-org">Breville</div>
+        <div class="role-body">Worked in automated quality processes, focused on accuracy, consistency, and the practical side of where hardware and software meet on a production line.</div>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-meta">Mar 2024 — Jul 2024</div>
+      <div>
+        <div class="role-title">IT Technician</div>
+        <div class="role-org">Silicon Beach Computers</div>
+        <div class="role-body">Hands-on hardware and technical support — diagnosing faults, repairs, and getting people's systems working again.</div>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-meta">Jan 2020 — Dec 2022</div>
+      <div>
+        <div class="role-title">IT Intern</div>
+        <div class="role-org">New Era Technology</div>
+        <div class="role-body">An early start in IT during school holidays and weekends — exposure to professional technical environments and support work.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-label">Education &amp; Credentials</div>
+    <h2>Study and qualifications.</h2>
+    <div class="facts">
+      <div>
+        <div class="fact-title">Diploma of Civil Construction Design</div>
+        <div class="fact-sub">TAFE NSW · 2026</div>
+      </div>
+      <div>
+        <div class="fact-title">Higher School Certificate</div>
+        <div class="fact-sub">Oxford Falls Grammar School · 2023</div>
+      </div>
+      <div>
+        <div class="fact-title">Electrical &amp; Electronic Engineering</div>
+        <div class="fact-sub">University of Technology Sydney · commenced</div>
+      </div>
+      <div>
+        <div class="fact-title">Australian Citizen · White Card</div>
+        <div class="fact-sub">Construction induction card held</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="section-label">Contact</div>
+    <h2>Get in touch.</h2>
+    <div class="prose">
+      <p>Open to IT and technology roles around Sydney. The easiest ways to reach me:</p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:aiden.js.percy@gmail.com"><span>Email</span>aiden.js.percy@gmail.com</a>
+      <a href="https://www.linkedin.com/in/aiden-js-percy" target="_blank" rel="noopener"><span>LinkedIn</span>aiden-js-percy</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Aiden Percy</div>
+    <div>Sydney, Northern Beaches</div>
+  </div>
+</footer>
+
+</body>
+</html>
